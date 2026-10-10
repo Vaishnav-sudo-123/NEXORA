@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NEXORA | Notifications</title>
+
+    <link
+        rel="stylesheet"
+        href="notifications.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         SIDEBAR OVERLAY
+    ========================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+
+        <!-- MOBILE CLOSE -->
+
+        <button
+            type="button"
+            class="sidebar-close"
+            id="sidebarClose"
+            aria-label="Close navigation"
+        >
+            ✕
+        </button>
+
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-logo">
+
+                <div class="brand-icon">
+                    N
+                </div>
+
+                <div class="brand-text">
+
+                    <h2>
+                        NEXORA
+                    </h2>
+
+                    <span>
+                        WORKSPACE
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p>
+                Manage Projects. Empower Teams.
+            </p>
+
+        </div>
+
+
+
+        <!-- MAIN MENU -->
+
+        <p class="menu-title">
+            MAIN MENU
+        </p>
+
+
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
+
+
+        <a href="projects.html">
+            📁 Projects
+        </a>
+
+
+        <a href="tasks.html">
+            ✅ Tasks
+        </a>
+
+
+        <a href="team.html">
+            👥 Team
+        </a>
+
+
+
+        <!-- SYSTEM -->
+
+        <p class="menu-title">
+            SYSTEM
+        </p>
+
+
+        <a
+            href="notifications.html"
+            class="active"
+        >
+            🔔 Notifications
+        </a>
+
+
+        <a href="analytics.html">
+            📈 Analytics
+        </a>
+
+
+        <a href="settings.html">
+            ⚙️ Settings
+        </a>
+
+
+
+        <!-- LOGOUT -->
+
+        <button
+            type="button"
+            id="logoutBtn"
+            class="logout"
+        >
+            🚪 Logout
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="main">
+
+
+        <!-- =========================
+             TOPBAR
+        ========================== -->
+
+        <header class="topbar">
+
+
+            <!-- MOBILE MENU -->
+
+            <button
+                type="button"
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                aria-label="Open navigation"
+            >
+                ☰
+            </button>
+
+
+
+            <!-- TITLE -->
+
+            <div class="topbar-info">
+
+                <h1>
+                    Notifications
+                </h1>
+
+                <p>
+                    Stay updated with your workspace activity.
+                </p>
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =========================
+             NOTIFICATION SUMMARY
+        ========================== -->
+
+        <section class="notification-summary">
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    🔔
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Notifications
+                    </span>
+
+                    <strong id="totalNotifications">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon unread">
+                    ●
+                </div>
+
+                <div>
+
+                    <span>
+                        Unread
+                    </span>
+
+                    <strong id="unreadNotifications">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon read">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span>
+                        Read
+                    </span>
+
+                    <strong id="readNotifications">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             NOTIFICATION SECTION
+        ========================== -->
+
+        <section class="notification-section">
+
+
+            <!-- SECTION HEADER -->
+
+            <div class="section-header">
+
+
+                <div>
+
+                    <h2>
+                        Recent Notifications
+                    </h2>
+
+                    <p>
+                        Latest activity from your workspace.
+                    </p>
+
+                </div>
+
+
+
+                <!-- ACTIONS -->
+
+                <div class="notification-actions">
+
+                    <button
+                        type="button"
+                        id="markAllReadBtn"
+                        class="secondary-btn"
+                    >
+                        ✓ Mark All Read
+                    </button>
+
+                    <button
+                        type="button"
+                        id="refreshBtn"
+                        class="refresh-btn"
+                    >
+                        ↻ Refresh
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- FILTER BAR -->
+
+            <div class="notification-toolbar">
+
+
+                <div class="notification-search">
+
+                    <span>
+                        🔍
+                    </span>
+
+                    <input
+                        type="text"
+                        id="notificationSearch"
+                        placeholder="Search notifications..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+
+                <div class="notification-filter">
+
+                    <select id="notificationFilter">
+
+                        <option value="all">
+                            All Notifications
+                        </option>
+
+                        <option value="unread">
+                            Unread
+                        </option>
+
+                        <option value="read">
+                            Read
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 NOTIFICATION LIST
+            ========================== -->
+
+            <div
+                id="notificationList"
+                class="notification-list"
+            >
+
+                <div class="loading">
+
+                    Loading notifications...
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         MOBILE SIDEBAR SCRIPT
+    ========================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const sidebar =
+                    document.getElementById(
+                        "sidebar"
+                    );
+
+                const overlay =
+                    document.getElementById(
+                        "sidebarOverlay"
+                    );
+
+                const menuBtn =
+                    document.getElementById(
+                        "mobileMenuBtn"
+                    );
+
+                const closeBtn =
+                    document.getElementById(
+                        "sidebarClose"
+                    );
+
+
+                function openSidebar() {
+
+                    if (!sidebar || !overlay) {
+                        return;
+                    }
+
+                    sidebar.classList.add(
+                        "mobile-open"
+                    );
+
+                    overlay.classList.add(
+                        "show"
+                    );
+
+                    document.body.style.overflow =
+                        "hidden";
+                }
+
+
+                function closeSidebar() {
+
+                    if (!sidebar || !overlay) {
+                        return;
+                    }
+
+                    sidebar.classList.remove(
+                        "mobile-open"
+                    );
+
+                    overlay.classList.remove(
+                        "show"
+                    );
+
+                    document.body.style.overflow =
+                        "";
+                }
+
+
+                if (menuBtn) {
+
+                    menuBtn.addEventListener(
+                        "click",
+                        openSidebar
+                    );
+
+                }
+
+
+                if (closeBtn) {
+
+                    closeBtn.addEventListener(
+                        "click",
+                        closeSidebar
+                    );
+
+                }
+
+
+                if (overlay) {
+
+                    overlay.addEventListener(
+                        "click",
+                        closeSidebar
+                    );
+
+                }
+
+
+                document
+                    .querySelectorAll(
+                        ".sidebar a"
+                    )
+                    .forEach(
+                        function (link) {
+
+                            link.addEventListener(
+                                "click",
+                                closeSidebar
+                            );
+
+                        }
+                    );
+
+
+                document.addEventListener(
+                    "keydown",
+                    function (event) {
+
+                        if (
+                            event.key === "Escape"
+                        ) {
+
+                            closeSidebar();
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
+
+    <!-- =========================
+         NOTIFICATIONS JS
+    ========================== -->
+
+    <script src="notifications.js"></script>
+
+
+</body>
+
+</html>

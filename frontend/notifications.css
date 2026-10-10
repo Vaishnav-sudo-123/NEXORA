@@ -1,0 +1,811 @@
+/* =========================================================
+   NEXORA - NOTIFICATIONS PAGE
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(180deg, #111827 0%, #172033 100%);
+    color: white;
+    padding: 22px 16px;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 10px 25px;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
+}
+
+.brand-text {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.menu-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #8993a5;
+    letter-spacing: 1.2px;
+    padding: 10px 12px;
+    margin-bottom: 5px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 13px;
+    border-radius: 10px;
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+.sidebar nav a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    transform: translateX(2px);
+}
+
+.sidebar nav a.active {
+    background: linear-gradient(
+        135deg,
+        rgba(99, 102, 241, 0.95),
+        rgba(124, 58, 237, 0.95)
+    );
+    color: white;
+    box-shadow: 0 7px 18px rgba(79, 70, 229, 0.25);
+}
+
+.logout {
+    margin-top: 20px;
+    border: none;
+    width: 100%;
+    background: rgba(239, 68, 68, 0.1);
+    color: #fca5a5;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.logout:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fecaca;
+}
+
+
+/* =========================================================
+   SIDEBAR MOBILE CONTROLS
+   ========================================================= */
+
+.sidebar-close {
+    display: none;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    border: none;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    z-index: 900;
+    backdrop-filter: blur(2px);
+}
+
+.sidebar-overlay.show {
+    display: block;
+}
+
+.mobile-menu-btn {
+    display: none;
+    border: none;
+    background: #6366f1;
+    color: white;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 21px;
+    box-shadow: 0 6px 15px rgba(99, 102, 241, 0.25);
+}
+
+
+/* =========================================================
+   MAIN AREA
+   ========================================================= */
+
+.main {
+    margin-left: 250px;
+    min-height: 100vh;
+    padding: 0 30px 35px;
+}
+
+.topbar {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 28px;
+}
+
+.topbar-info h1 {
+    font-size: 27px;
+    color: #111827;
+    font-weight: 750;
+}
+
+.topbar-info p {
+    margin-top: 5px;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   SUMMARY CARDS
+   ========================================================= */
+
+.notification-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.summary-card {
+    background: white;
+    border: 1px solid #e8ebf0;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.summary-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 13px;
+    background: #eef2ff;
+    color: #4f46e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    flex-shrink: 0;
+}
+
+.summary-card:nth-child(2) .summary-icon {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.summary-card:nth-child(3) .summary-icon {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.summary-card h3 {
+    font-size: 25px;
+    color: #111827;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.summary-card p {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+
+/* =========================================================
+   NOTIFICATION SECTION
+   ========================================================= */
+
+.notification-section {
+    background: white;
+    border: 1px solid #e8ebf0;
+    border-radius: 17px;
+    padding: 24px;
+    box-shadow: 0 5px 22px rgba(15, 23, 42, 0.04);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 19px;
+    color: #111827;
+}
+
+.notification-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.secondary-btn,
+.refresh-btn {
+    border: 1px solid #dfe3ea;
+    background: white;
+    color: #374151;
+    border-radius: 9px;
+    padding: 9px 13px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.secondary-btn:hover,
+.refresh-btn:hover {
+    border-color: #6366f1;
+    color: #4f46e5;
+    background: #f8f8ff;
+}
+
+.refresh-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+/* =========================================================
+   SEARCH + FILTER
+   ========================================================= */
+
+.notification-toolbar {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.notification-search,
+.notification-filter {
+    width: 100%;
+    height: 43px;
+    border: 1px solid #dfe3ea;
+    border-radius: 10px;
+    background: #fafbfc;
+    color: #374151;
+    outline: none;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.notification-search {
+    padding: 0 14px;
+}
+
+.notification-filter {
+    padding: 0 12px;
+}
+
+.notification-search:focus,
+.notification-filter:focus {
+    border-color: #6366f1;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.09);
+}
+
+
+/* =========================================================
+   NOTIFICATION LIST
+   ========================================================= */
+
+.notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.notification-item,
+.notification-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 17px;
+    border: 1px solid #e7eaf0;
+    border-radius: 13px;
+    background: #fff;
+    transition: all 0.22s ease;
+}
+
+.notification-item:hover,
+.notification-card:hover {
+    border-color: #cfd4e2;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 20px rgba(15, 23, 42, 0.06);
+}
+
+.notification-item.unread,
+.notification-card.unread {
+    background: #f8f8ff;
+    border-left: 4px solid #6366f1;
+}
+
+.notification-item.read,
+.notification-card.read {
+    opacity: 0.86;
+}
+
+.notification-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 11px;
+    background: #eef2ff;
+    color: #4f46e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.notification-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 5px;
+}
+
+.notification-message {
+    font-size: 13px;
+    color: #5f6877;
+    line-height: 1.55;
+    word-break: break-word;
+}
+
+.notification-time {
+    margin-top: 8px;
+    color: #9ca3af;
+    font-size: 11px;
+}
+
+.notification-status {
+    font-size: 11px;
+    font-weight: 700;
+    color: #6366f1;
+    background: #eef2ff;
+    border-radius: 20px;
+    padding: 5px 8px;
+    white-space: nowrap;
+}
+
+.notification-delete {
+    border: none;
+    background: transparent;
+    color: #9ca3af;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.notification-delete:hover {
+    background: #fef2f2;
+    color: #ef4444;
+}
+
+.notification-read {
+    border: none;
+    background: #eef2ff;
+    color: #4f46e5;
+    padding: 7px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.notification-read:hover {
+    background: #e0e7ff;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state,
+.no-notifications {
+    text-align: center;
+    padding: 55px 20px;
+    color: #6b7280;
+}
+
+.empty-state-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    font-size: 24px;
+}
+
+.empty-state h3,
+.no-notifications h3 {
+    color: #374151;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.empty-state p,
+.no-notifications p {
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   MODAL SUPPORT
+   ========================================================= */
+
+.modal,
+.notification-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.58);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 2000;
+    backdrop-filter: blur(3px);
+}
+
+.modal.show,
+.notification-modal.show {
+    display: flex;
+}
+
+.modal-content,
+.notification-modal-content {
+    width: 100%;
+    max-width: 480px;
+    background: white;
+    border-radius: 17px;
+    padding: 25px;
+    box-shadow: 0 25px 70px rgba(15, 23, 42, 0.2);
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .sidebar {
+        width: 225px;
+    }
+
+    .main {
+        margin-left: 225px;
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .notification-summary {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .summary-card {
+        padding: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    .sidebar {
+        width: 270px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: 15px 0 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    .sidebar-close {
+        display: block;
+    }
+
+    .main {
+        margin-left: 0;
+        padding: 0 17px 30px;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .topbar {
+        min-height: 72px;
+        margin-bottom: 20px;
+        gap: 12px;
+    }
+
+    .topbar-info h1 {
+        font-size: 22px;
+    }
+
+    .topbar-info p {
+        font-size: 12px;
+    }
+
+    .notification-summary {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .summary-card {
+        padding: 15px;
+    }
+
+    .summary-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .summary-card h3 {
+        font-size: 22px;
+    }
+
+    .notification-section {
+        padding: 17px;
+        border-radius: 14px;
+    }
+
+    .section-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .notification-actions {
+        width: 100%;
+    }
+
+    .secondary-btn,
+    .refresh-btn {
+        flex: 1;
+    }
+
+    .notification-toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .notification-item,
+    .notification-card {
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .notification-icon {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+    }
+
+    .notification-status {
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+    .main {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .topbar {
+        min-height: 68px;
+    }
+
+    .topbar-info h1 {
+        font-size: 20px;
+    }
+
+    .topbar-info p {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 19px;
+    }
+
+    .notification-section {
+        padding: 13px;
+    }
+
+    .section-header h2 {
+        font-size: 17px;
+    }
+
+    .notification-actions {
+        gap: 6px;
+    }
+
+    .secondary-btn,
+    .refresh-btn {
+        padding: 8px 9px;
+        font-size: 12px;
+    }
+
+    .notification-search,
+    .notification-filter {
+        height: 40px;
+    }
+
+    .notification-item,
+    .notification-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+
+    .notification-content {
+        width: 100%;
+    }
+
+    .notification-delete {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+    }
+
+    .notification-time {
+        padding-right: 30px;
+    }
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f3f6;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd0d9;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #aeb5c2;
+}
+
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+.notification-item,
+.notification-card,
+.summary-card {
+    animation: fadeInUp 0.35s ease both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

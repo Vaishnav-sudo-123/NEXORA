@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NEXORA | Settings</title>
+
+    <link
+        rel="stylesheet"
+        href="dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="settings.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- NEXORA BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-logo">
+
+                <div class="brand-icon">
+                    N
+                </div>
+
+                <div class="brand-text">
+
+                    <h2>
+                        NEXORA
+                    </h2>
+
+                    <span>
+                        WORKSPACE
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p>
+                Manage Projects. Empower Teams.
+            </p>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav>
+
+
+            <a href="dashboard.html">
+                🏠 Dashboard
+            </a>
+
+
+            <a href="projects.html">
+                📁 Projects
+            </a>
+
+
+            <a href="tasks.html">
+                ✅ Tasks
+            </a>
+
+
+            <a href="team.html">
+                👥 Team
+            </a>
+
+
+            <a href="notifications.html">
+                🔔 Notifications
+            </a>
+
+
+            <a href="analytics.html">
+                📊 Analytics
+            </a>
+
+
+            <a
+                href="settings.html"
+                class="active"
+            >
+                ⚙️ Settings
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- LOGOUT -->
+
+        <button
+            id="logoutBtn"
+            class="logout-btn"
+            type="button"
+        >
+
+            🚪 Logout
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <h1>
+                    Settings
+                </h1>
+
+                <p>
+                    Manage your NEXORA account and preferences.
+                </p>
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =========================
+             PROFILE
+        ========================== -->
+
+        <section class="settings-card">
+
+
+            <div class="settings-header">
+
+
+                <div>
+
+                    <h2>
+                        👤 Profile
+                    </h2>
+
+                    <p>
+                        Your account information
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PROFILE BOX -->
+
+            <div class="profile-box">
+
+
+                <div
+                    class="profile-avatar"
+                    id="profileAvatar"
+                >
+                    NU
+                </div>
+
+
+                <div class="profile-info">
+
+
+                    <h3 id="userName">
+                        NEXORA User
+                    </h3>
+
+
+                    <p id="userEmail">
+                        user@example.com
+                    </p>
+
+
+                    <span id="userRole">
+                        Member
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PROFILE FORM -->
+
+            <div class="profile-edit-box">
+
+
+                <div class="profile-field">
+
+
+                    <label for="profileNameInput">
+                        Full Name
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="profileNameInput"
+                        placeholder="Enter your full name"
+                    >
+
+
+                </div>
+
+
+
+                <div class="profile-field">
+
+
+                    <label for="profileEmailInput">
+                        Email Address
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="profileEmailInput"
+                        placeholder="Enter your email"
+                    >
+
+
+                </div>
+
+
+
+                <div class="profile-field">
+
+
+                    <label for="profileRoleInput">
+                        Role
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="profileRoleInput"
+                        placeholder="Your role"
+                        readonly
+                    >
+
+
+                </div>
+
+
+                <div class="profile-actions">
+
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        id="cancelProfileBtn"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                        id="saveProfileBtn"
+                    >
+                        💾 Save Profile
+                    </button>
+
+
+                </div>
+
+
+                <p
+                    id="profileMessage"
+                    class="settings-message"
+                ></p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             ACCOUNT
+        ========================== -->
+
+        <section class="settings-card">
+
+
+            <div class="settings-header">
+
+
+                <div>
+
+                    <h2>
+                        🔐 Account
+                    </h2>
+
+                    <p>
+                        Manage your account security
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="setting-row">
+
+
+                <div>
+
+                    <strong>
+                        Email Address
+                    </strong>
+
+                    <p id="emailDisplay">
+                        user@example.com
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PASSWORD -->
+
+            <div class="setting-row">
+
+
+                <div>
+
+                    <strong>
+                        Password
+                    </strong>
+
+                    <p>
+                        Your password is securely protected.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="secondary-btn"
+                    id="changePasswordBtn"
+                    type="button"
+                >
+
+                    Change Password
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             NOTIFICATIONS
+        ========================== -->
+
+        <section class="settings-card">
+
+
+            <div class="settings-header">
+
+
+                <div>
+
+                    <h2>
+                        🔔 Notifications
+                    </h2>
+
+                    <p>
+                        Control your notification preferences
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PROJECT NOTIFICATIONS -->
+
+            <div class="setting-row">
+
+
+                <div>
+
+                    <strong>
+                        Project Notifications
+                    </strong>
+
+                    <p>
+                        Receive notifications when projects are created.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+
+                    <input
+                        type="checkbox"
+                        id="projectNotifications"
+                        checked
+                    >
+
+
+                    <span class="slider"></span>
+
+
+                </label>
+
+
+            </div>
+
+
+
+            <!-- TASK NOTIFICATIONS -->
+
+            <div class="setting-row">
+
+
+                <div>
+
+                    <strong>
+                        Task Notifications
+                    </strong>
+
+                    <p>
+                        Receive notifications for assigned tasks.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+
+                    <input
+                        type="checkbox"
+                        id="taskNotifications"
+                        checked
+                    >
+
+
+                    <span class="slider"></span>
+
+
+                </label>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             APPEARANCE
+        ========================== -->
+
+        <section class="settings-card">
+
+
+            <div class="settings-header">
+
+
+                <div>
+
+                    <h2>
+                        🎨 Appearance
+                    </h2>
+
+                    <p>
+                        Customize your dashboard experience
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="setting-row">
+
+
+                <div>
+
+                    <strong>
+                        Theme
+                    </strong>
+
+                    <p>
+                        Choose your preferred interface theme.
+                    </p>
+
+                </div>
+
+
+                <select id="themeSelect">
+
+
+                    <option value="dark">
+                        Dark
+                    </option>
+
+
+                    <option value="light">
+                        Light
+                    </option>
+
+
+                </select>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             DANGER ZONE
+        ========================== -->
+
+        <section class="settings-card danger-card">
+
+
+            <div class="settings-header">
+
+
+                <div>
+
+                    <h2>
+                        🚪 Account Actions
+                    </h2>
+
+                    <p>
+                        Manage your NEXORA session.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                id="logoutSettingsBtn"
+                class="danger-btn"
+                type="button"
+            >
+
+                Logout from NEXORA
+
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="settings.js"></script>
+
+
+</body>
+
+</html>

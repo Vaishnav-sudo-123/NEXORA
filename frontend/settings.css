@@ -1,0 +1,252 @@
+/* =========================
+   NEXORA SETTINGS PAGE
+========================= */
+
+.settings-card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.settings-header h2 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 19px;
+}
+
+.settings-header p {
+    margin: 6px 0 0;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+
+/* PROFILE */
+
+.profile-box {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.profile-avatar {
+    width: 64px;
+    height: 64px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.profile-info h3 {
+    margin: 0 0 5px;
+    color: #f8fafc;
+}
+
+.profile-info p {
+    margin: 0 0 8px;
+    color: #94a3b8;
+}
+
+.profile-info span {
+    display: inline-block;
+
+    padding: 4px 10px;
+
+    border-radius: 20px;
+
+    background: #1e3a8a;
+    color: #bfdbfe;
+
+    font-size: 12px;
+}
+
+
+/* SETTING ROW */
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 0;
+
+    border-top: 1px solid #1f2937;
+
+    gap: 20px;
+}
+
+.setting-row strong {
+    color: #f8fafc;
+    font-size: 15px;
+}
+
+.setting-row p {
+    margin: 6px 0 0;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+
+/* BUTTON */
+
+.secondary-btn {
+    border: none;
+
+    background: #2563eb;
+    color: white;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+.secondary-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* SWITCH */
+
+.switch {
+    position: relative;
+
+    width: 46px;
+    height: 24px;
+
+    flex-shrink: 0;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+
+    inset: 0;
+
+    background: #374151;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    left: 3px;
+    top: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+    background: #2563eb;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(22px);
+}
+
+
+/* SELECT */
+
+#themeSelect {
+    background: #0f172a;
+
+    color: #f8fafc;
+
+    border: 1px solid #334155;
+
+    padding: 10px 14px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+/* DANGER */
+
+.danger-card {
+    border-color: #7f1d1d;
+}
+
+.danger-btn {
+    background: #dc2626;
+
+    color: white;
+
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+.danger-btn:hover {
+    background: #b91c1c;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .settings-card {
+        padding: 18px;
+    }
+
+    .setting-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .secondary-btn,
+    .danger-btn {
+        width: 100%;
+    }
+
+    .profile-box {
+        align-items: flex-start;
+    }
+
+}

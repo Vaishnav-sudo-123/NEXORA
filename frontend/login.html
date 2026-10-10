@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXORA | Login</title>
+
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <div class="login-page">
+
+        <!-- LEFT BRAND SECTION -->
+        <div class="brand-section">
+
+            <div class="brand-content">
+
+                <div class="brand-logo">
+                    <div class="brand-icon">N</div>
+                    <span>NEXORA</span>
+                </div>
+
+                <h2>
+                    Manage Projects.<br>
+                    <span>Empower Teams.</span>
+                </h2>
+
+                <p>
+                    A modern workspace designed to help teams
+                    organize projects, manage tasks and work
+                    together efficiently.
+                </p>
+
+                <div class="feature-list">
+
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <span>Manage projects effortlessly</span>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <span>Track tasks and progress</span>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <span>Collaborate with your team</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOGIN SECTION -->
+        <div class="login-section">
+
+            <div class="login-card">
+
+                <div class="mobile-logo">
+                    <div class="mobile-logo-icon">N</div>
+                    <span>NEXORA</span>
+                </div>
+
+                <div class="login-heading">
+
+                    <h1>Welcome Back</h1>
+
+                    <p>
+                        Login to your NEXORA workspace
+                    </p>
+
+                </div>
+
+
+                <form id="loginForm">
+
+                    <!-- EMAIL -->
+                    <div class="input-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">✉</span>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+                    <div class="input-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">🔒</span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="passwordToggle"
+                                aria-label="Show password"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOGIN BUTTON -->
+                    <button
+                        type="submit"
+                        class="login-btn"
+                        id="loginBtn"
+                    >
+                        <span id="loginBtnText">
+                            Login to NEXORA
+                        </span>
+                    </button>
+
+
+                    <!-- MESSAGE -->
+                    <p id="loginMessage"></p>
+
+                </form>
+
+
+                <!-- DEMO ACCOUNT -->
+                <div class="demo-info">
+
+                    <div class="demo-title">
+                        <span>🧪</span>
+                        Demo Account
+                    </div>
+
+                    <div class="demo-row">
+                        <span>Email</span>
+                        <strong>admin@nexora.com</strong>
+                    </div>
+
+                    <div class="demo-row">
+                        <span>Password</span>
+                        <strong>Admin@123</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- REGISTER -->
+                <p class="register-text">
+                    Don't have an account?
+                    <a href="register.html">
+                        Create an account
+                    </a>
+                </p>
+
+
+                <p class="footer-text">
+                    © 2026 NEXORA. All rights reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="login.js"></script>
+
+</body>
+
+</html>

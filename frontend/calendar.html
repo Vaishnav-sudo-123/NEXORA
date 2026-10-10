@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA | Calendar</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="calendar.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-logo">
+                <div class="brand-icon">N</div>
+                <div class="brand-text">
+                    <h2>NEXORA</h2>
+                    <span>WORKSPACE</span>
+                </div>
+            </div>
+            <p>Manage Projects. Empower Teams.</p>
+        </div>
+
+        <nav>
+            <a href="dashboard.html">🏠 Dashboard</a>
+            <a href="projects.html">📁 Projects</a>
+            <a href="tasks.html">✅ Tasks</a>
+            <a href="team.html">👥 Team</a>
+            <a href="calendar.html" class="active">📅 Calendar</a>
+            <a href="notifications.html">🔔 Notifications</a>
+            <a href="analytics.html">📊 Analytics</a>
+            <a href="settings.html">⚙️ Settings</a>
+        </nav>
+
+        <button id="logoutBtn" class="logout-btn" type="button">
+            🚪 Logout
+        </button>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar calendar-topbar">
+            <div>
+                <h1>Calendar & Deadlines</h1>
+                <p>Track your projects and task deadlines in one place.</p>
+            </div>
+
+            <button id="todayBtn" class="calendar-btn" type="button">
+                Today
+            </button>
+        </header>
+
+        <section class="calendar-stats">
+            <article class="calendar-stat">
+                <span>Total Events</span>
+                <h2 id="totalEvents">0</h2>
+            </article>
+
+            <article class="calendar-stat">
+                <span>Upcoming</span>
+                <h2 id="upcomingEvents">0</h2>
+            </article>
+
+            <article class="calendar-stat">
+                <span>Overdue Tasks</span>
+                <h2 id="overdueTasks">0</h2>
+            </article>
+
+            <article class="calendar-stat">
+                <span>Due Today</span>
+                <h2 id="dueToday">0</h2>
+            </article>
+        </section>
+
+        <section class="calendar-layout">
+            <div class="calendar-panel">
+                <div class="calendar-controls">
+                    <div class="calendar-month-controls">
+                        <button id="prevMonth" type="button" aria-label="Previous month">‹</button>
+                        <h2 id="monthTitle">Month Year</h2>
+                        <button id="nextMonth" type="button" aria-label="Next month">›</button>
+                    </div>
+
+                    <select id="eventFilter" aria-label="Filter calendar events">
+                        <option value="all">All Events</option>
+                        <option value="task">Tasks</option>
+                        <option value="project">Projects</option>
+                    </select>
+                </div>
+
+                <div class="calendar-grid calendar-weekdays">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+
+                <div id="calendarGrid" class="calendar-grid calendar-days">
+                    <p class="calendar-loading">Loading calendar...</p>
+                </div>
+
+                <div class="calendar-legend">
+                    <span><i class="legend-dot task-dot"></i> Task</span>
+                    <span><i class="legend-dot project-dot"></i> Project</span>
+                    <span><i class="legend-dot overdue-dot"></i> Overdue</span>
+                </div>
+            </div>
+
+            <aside class="events-panel">
+                <div class="events-panel-header">
+                    <div>
+                        <h2 id="selectedDateTitle">Upcoming Deadlines</h2>
+                        <p>Choose a date to view its events.</p>
+                    </div>
+                </div>
+
+                <div id="selectedDateEvents" class="selected-date-events">
+                    <p class="calendar-loading">Loading events...</p>
+                </div>
+            </aside>
+        </section>
+
+        <p id="calendarStatus" class="calendar-status" role="status"></p>
+    </main>
+
+    <script src="calendar.js"></script>
+</body>
+</html>

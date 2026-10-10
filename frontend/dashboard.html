@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NEXORA | Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="./dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MOBILE OVERLAY
+    ====================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+
+        <!-- MOBILE CLOSE BUTTON -->
+
+        <button
+            class="sidebar-close"
+            id="sidebarClose"
+            type="button"
+            aria-label="Close sidebar"
+        >
+            ✕
+        </button>
+
+
+
+        <!-- NEXORA BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-logo">
+
+                <div class="brand-icon">
+                    N
+                </div>
+
+                <div class="brand-text">
+
+                    <h2>
+                        NEXORA
+                    </h2>
+
+                    <span>
+                        WORKSPACE
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p>
+                Manage Projects. Empower Teams.
+            </p>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <a
+                href="dashboard.html"
+                class="active"
+            >
+                📊 Dashboard
+            </a>
+
+
+            <a href="projects.html">
+                📁 Projects
+            </a>
+
+
+            <a href="tasks.html">
+                ✅ Tasks
+            </a>
+
+
+            <a href="team.html">
+                👥 Team
+            </a>
+
+
+            <a href="notifications.html">
+                🔔 Notifications
+            </a>
+            
+            <a href="calendar.html">
+                📅 Calendar
+            </a>
+
+
+            <a href="analytics.html">
+                📈 Analytics
+            </a>
+
+
+            <a
+                href="javascript:void(0);"
+                onclick="openSettings()"
+            >
+                ⚙️ Settings
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- LOGOUT -->
+
+        <button
+            id="logoutBtn"
+            class="logout-btn"
+            type="button"
+        >
+            🚪 Logout
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             DASHBOARD HEADER
+        ================================================== -->
+
+        <header class="dashboard-header">
+
+
+            <!-- MOBILE MENU BUTTON -->
+
+            <button
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                type="button"
+                aria-label="Open navigation menu"
+            >
+                ☰
+            </button>
+
+
+
+            <!-- WELCOME -->
+
+            <div class="welcome-section">
+
+                <p class="welcome-text">
+                    Welcome back
+                </p>
+
+
+                <h1>
+
+                    <span id="userName">
+                        NEXORA User
+                    </span>
+
+                </h1>
+
+
+                <p class="subtitle">
+                    Here's what's happening with your workspace today.
+                </p>
+
+            </div>
+
+
+
+            <!-- HEADER ACTIONS -->
+
+            <div class="header-actions">
+
+
+                <!-- NOTIFICATIONS -->
+
+                <a
+                    href="notifications.html"
+                    class="notification-btn"
+                    aria-label="Notifications"
+                >
+                    🔔
+                </a>
+
+
+
+                <!-- PROFILE MENU -->
+
+                <div class="profile-menu">
+
+
+                    <button
+                        class="profile-btn"
+                        id="profileBtn"
+                        type="button"
+                    >
+
+                        <span class="profile-avatar">
+                            👤
+                        </span>
+
+
+                        <span class="profile-info">
+
+                            <strong id="profileName">
+                                NEXORA User
+                            </strong>
+
+
+                            <small id="profileRole">
+                                Workspace Member
+                            </small>
+
+                        </span>
+
+
+                        <span class="profile-arrow">
+                            ▾
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- PROFILE DROPDOWN -->
+
+                    <div
+                        class="profile-dropdown"
+                        id="profileDropdown"
+                    >
+
+
+                        <!-- PROFILE HEADER -->
+
+                        <div class="profile-dropdown-header">
+
+
+                            <div class="profile-avatar large">
+                                👤
+                            </div>
+
+
+                            <div class="profile-user-details">
+
+                                <strong id="dropdownProfileName">
+                                    NEXORA User
+                                </strong>
+
+
+                                <small id="dropdownProfileRole">
+                                    Workspace Member
+                                </small>
+
+
+                                <small
+                                    id="dropdownProfileEmail"
+                                    class="profile-email"
+                                >
+                                    user@example.com
+                                </small>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="profile-dropdown-divider"></div>
+
+
+
+                        <!-- PROFILE INFO -->
+
+                        <div class="profile-dropdown-info">
+
+
+                            <div class="profile-info-row">
+
+                                <span>
+                                    👤
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        Name
+                                    </small>
+
+                                    <strong id="profileDetailName">
+                                        NEXORA User
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="profile-info-row">
+
+                                <span>
+                                    📧
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        Email
+                                    </small>
+
+                                    <strong id="profileDetailEmail">
+                                        user@example.com
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="profile-info-row">
+
+                                <span>
+                                    🛡️
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        Role
+                                    </small>
+
+                                    <strong id="profileDetailRole">
+                                        Workspace Member
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="profile-dropdown-divider"></div>
+
+
+
+                        <!-- SETTINGS -->
+
+                        <a href="settings.html">
+
+                            <span>
+                                ⚙️
+                            </span>
+
+                            <span>
+                                Settings
+                            </span>
+
+                        </a>
+
+
+
+                        <!-- ANALYTICS -->
+
+                        <a href="analytics.html">
+
+                            <span>
+                                📊
+                            </span>
+
+                            <span>
+                                Analytics
+                            </span>
+
+                        </a>
+
+
+
+                        <!-- LOGOUT -->
+
+                        <button
+                            type="button"
+                            id="profileLogoutBtn"
+                        >
+
+                            <span>
+                                🚪
+                            </span>
+
+                            <span>
+                                Logout
+                            </span>
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             STAT CARDS
+        ================================================== -->
+
+        <section class="stats-grid">
+
+
+            <!-- PROJECTS -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-card-top">
+
+                    <span class="stat-title">
+                        Total Projects
+                    </span>
+
+
+                    <span class="stat-icon">
+                        📁
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="totalProjects"
+                    class="stat-number"
+                >
+                    0
+                </div>
+
+
+                <p class="stat-description">
+                    Projects in workspace
+                </p>
+
+
+            </div>
+
+
+
+            <!-- TASKS -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-card-top">
+
+                    <span class="stat-title">
+                        Total Tasks
+                    </span>
+
+
+                    <span class="stat-icon">
+                        📋
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="totalTasks"
+                    class="stat-number"
+                >
+                    0
+                </div>
+
+
+                <p class="stat-description">
+                    Tasks across projects
+                </p>
+
+
+            </div>
+
+
+
+            <!-- COMPLETED TASKS -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-card-top">
+
+                    <span class="stat-title">
+                        Completed Tasks
+                    </span>
+
+
+                    <span class="stat-icon">
+                        ✅
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="completedTasks"
+                    class="stat-number"
+                >
+                    0
+                </div>
+
+
+                <p class="stat-description">
+                    Successfully completed
+                </p>
+
+
+            </div>
+            
+<!-- UPCOMING DEADLINES -->
+<div class="stat-card">
+    <div class="stat-card-top">
+        <span class="stat-title">Upcoming Deadlines</span>
+        <span>📅</span>
+    </div>
+
+    <div class="stat-value" id="upcomingDeadlinesCount">0</div>
+
+    <p class="stat-description">
+        Projects and tasks due soon
+    </p>
+
+    <a href="calendar.html" class="stat-link">
+        View Calendar →
+    </a>
+</div>
+
+
+
+            <!-- TEAM -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-card-top">
+
+                    <span class="stat-title">
+                        Team Members
+                    </span>
+
+
+                    <span class="stat-icon">
+                        👥
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="teamMembers"
+                    class="stat-number"
+                >
+                    0
+                </div>
+
+
+                <p class="stat-description">
+                    Active team members
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROJECT OVERVIEW + QUICK ACTIONS
+        ================================================== -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- PROJECT OVERVIEW -->
+
+            <div class="dashboard-card">
+
+
+                <div class="card-header">
+
+
+                    <div>
+
+                        <h2>
+                            Project Overview
+                        </h2>
+
+
+                        <p>
+                            Monitor your workspace performance.
+                        </p>
+
+                    </div>
+
+
+                    <a href="projects.html">
+                        View Projects →
+                    </a>
+
+
+                </div>
+
+
+
+                <div class="overview-content">
+
+
+                    <div class="overview-item">
+
+                        <span>
+                            Total Projects
+                        </span>
+
+
+                        <strong id="overviewProjects">
+                            0
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="overview-item">
+
+                        <span>
+                            Active Projects
+                        </span>
+
+
+                        <strong id="overviewActiveProjects">
+                            0
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="overview-item">
+
+                        <span>
+                            Completed Tasks
+                        </span>
+
+
+                        <strong id="overviewCompletedTasks">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="dashboard-card">
+
+
+                <div class="card-header">
+
+
+                    <div>
+
+                        <h2>
+                            Quick Actions
+                        </h2>
+
+
+                        <p>
+                            Manage your workspace.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="quick-actions">
+
+
+                    <a href="projects.html">
+
+                        <span>
+                            📁
+                        </span>
+
+
+                        <div>
+
+                            <strong>
+                                Manage Projects
+                            </strong>
+
+
+                            <small>
+                                Create and manage projects
+                            </small>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <a href="tasks.html">
+
+                        <span>
+                            ✅
+                        </span>
+
+
+                        <div>
+
+                            <strong>
+                                Manage Tasks
+                            </strong>
+
+
+                            <small>
+                                Track your tasks
+                            </small>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <a href="team.html">
+
+                        <span>
+                            👥
+                        </span>
+
+
+                        <div>
+
+                            <strong>
+                                Manage Team
+                            </strong>
+
+
+                            <small>
+                                View project members
+                            </small>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <a href="analytics.html">
+
+                        <span>
+                            📈
+                        </span>
+
+
+                        <div>
+
+                            <strong>
+                                View Analytics
+                            </strong>
+
+
+                            <small>
+                                Check performance
+                            </small>
+
+                        </div>
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             RECENT ACTIVITY
+        ================================================== -->
+
+        <section class="recent-section">
+
+
+            <!-- RECENT PROJECTS -->
+
+            <div class="dashboard-card">
+
+
+                <div class="card-header">
+
+
+                    <div>
+
+                        <h2>
+                            Recent Projects
+                        </h2>
+
+
+                        <p>
+                            Latest projects in your workspace.
+                        </p>
+
+                    </div>
+
+
+                    <a href="projects.html">
+                        View All →
+                    </a>
+
+
+                </div>
+
+
+
+                <div
+                    id="recentProjects"
+                    class="recent-list"
+                >
+
+                    <div class="loading">
+                        Loading projects...
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- RECENT TASKS -->
+
+            <div class="dashboard-card">
+
+
+                <div class="card-header">
+
+
+                    <div>
+
+                        <h2>
+                            Recent Tasks
+                        </h2>
+
+
+                        <p>
+                            Latest tasks across projects.
+                        </p>
+
+                    </div>
+
+
+                    <a href="tasks.html">
+                        View All →
+                    </a>
+
+
+                </div>
+
+
+
+                <div
+                    id="recentTasks"
+                    class="recent-list"
+                >
+
+                    <div class="loading">
+                        Loading tasks...
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             SYSTEM STATUS
+        ================================================== -->
+
+        <section class="dashboard-card system-status">
+
+
+            <div class="card-header">
+
+
+                <div>
+
+                    <h2>
+                        System Status
+                    </h2>
+
+
+                    <p>
+                        NEXORA platform status
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="status-grid">
+
+
+                <!-- BACKEND -->
+
+                <div class="status-item">
+
+
+                    <span class="status-dot"></span>
+
+
+                    <div>
+
+                        <strong>
+                            Backend API
+                        </strong>
+
+
+                        <small>
+                            Connected
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- DATABASE -->
+
+                <div class="status-item">
+
+
+                    <span class="status-dot"></span>
+
+
+                    <div>
+
+                        <strong>
+                            Database
+                        </strong>
+
+
+                        <small>
+                            Connected
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- AUTHENTICATION -->
+
+                <div class="status-item">
+
+
+                    <span class="status-dot"></span>
+
+
+                    <div>
+
+                        <strong>
+                            Authentication
+                        </strong>
+
+
+                        <small>
+                            Active
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="./dashboard.js"></script>
+
+
+
+    <!-- =====================================================
+         MOBILE SIDEBAR SCRIPT
+    ====================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const mobileMenuBtn =
+                    document.getElementById(
+                        "mobileMenuBtn"
+                    );
+
+                const sidebar =
+                    document.getElementById(
+                        "sidebar"
+                    );
+
+                const sidebarOverlay =
+                    document.getElementById(
+                        "sidebarOverlay"
+                    );
+
+                const sidebarClose =
+                    document.getElementById(
+                        "sidebarClose"
+                    );
+
+
+                function openSidebar() {
+
+                    sidebar.classList.add("mobile-open");
+
+                    sidebarOverlay.classList.add("show");
+
+                    document.body.classList.add(
+                        "sidebar-open"
+                    );
+
+                }
+
+
+                function closeSidebar() {
+
+                    sidebar.classList.remove(
+                        "mobile-open"
+                    );
+
+                    sidebarOverlay.classList.remove(
+                        "show"
+                    );
+
+                    document.body.classList.remove(
+                        "sidebar-open"
+                    );
+
+                }
+
+
+                if (mobileMenuBtn) {
+
+                    mobileMenuBtn.addEventListener(
+                        "click",
+                        openSidebar
+                    );
+
+                }
+
+
+                if (sidebarClose) {
+
+                    sidebarClose.addEventListener(
+                        "click",
+                        closeSidebar
+                    );
+
+                }
+
+
+                if (sidebarOverlay) {
+
+                    sidebarOverlay.addEventListener(
+                        "click",
+                        closeSidebar
+                    );
+
+                }
+
+
+                const sidebarLinks =
+                    document.querySelectorAll(
+                        ".sidebar-nav a"
+                    );
+
+
+                sidebarLinks.forEach(
+                    function (link) {
+
+                        link.addEventListener(
+                            "click",
+                            closeSidebar
+                        );
+
+                    }
+                );
+
+
+                window.addEventListener(
+                    "resize",
+                    function () {
+
+                        if (window.innerWidth > 750) {
+
+                            closeSidebar();
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

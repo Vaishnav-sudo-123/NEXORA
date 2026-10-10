@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NEXORA | Tasks</title>
+
+    <link rel="stylesheet" href="tasks.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- MOBILE SIDEBAR OVERLAY -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+
+    <div class="app-container">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside
+            class="sidebar"
+            id="sidebar"
+        >
+
+
+            <!-- MOBILE CLOSE -->
+
+            <button
+                class="sidebar-close"
+                id="sidebarClose"
+                type="button"
+            >
+                ✕
+            </button>
+
+
+
+            <!-- NEXORA BRAND -->
+
+            <div class="brand">
+
+                <div class="brand-logo">
+
+                    <div class="brand-icon">
+                        N
+                    </div>
+
+                    <div class="brand-text">
+
+                        <h2>
+                            NEXORA
+                        </h2>
+
+                        <span>
+                            WORKSPACE
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    Manage Projects. Empower Teams.
+                </p>
+
+            </div>
+
+
+            <p class="menu-title">
+                MAIN MENU
+            </p>
+
+
+            <!-- NAVIGATION -->
+
+            <nav>
+
+                <a href="dashboard.html">
+                    📊 Dashboard
+                </a>
+
+                <a href="projects.html">
+                    📁 Projects
+                </a>
+
+                <a
+                    href="tasks.html"
+                    class="active"
+                >
+                    ✅ Tasks
+                </a>
+
+                <a href="team.html">
+                    👥 Team
+                </a>
+
+                <a href="analytics.html">
+                    📈 Analytics
+                </a>
+
+                <a href="notifications.html">
+                    🔔 Notifications
+                </a>
+
+                <a href="settings.html">
+                    ⚙️ Settings
+                </a>
+
+            </nav>
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="sidebar-bottom">
+
+                <a href="dashboard.html">
+                    ← Back to Dashboard
+                </a>
+
+                <a
+                    href="#"
+                    onclick="logout()"
+                >
+                    🚪 Logout
+                </a>
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+
+            <!-- TOP BAR -->
+
+            <header class="topbar">
+
+
+                <!-- MOBILE MENU -->
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    type="button"
+                >
+                    ☰
+                </button>
+
+
+                <div>
+
+                    <h2>
+                        Tasks
+                    </h2>
+
+                    <p>
+                        Plan, organize and track your work
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="create-btn"
+                    onclick="openTaskModal()"
+                >
+                    + Create Task
+                </button>
+
+
+            </header>
+
+
+
+            <!-- =========================
+                 TASK STATISTICS
+            ========================== -->
+
+            <section class="task-stats">
+
+
+                <div class="stat-card">
+
+                    <span>
+                        Total Tasks
+                    </span>
+
+                    <strong id="total-tasks">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>
+                        To Do
+                    </span>
+
+                    <strong id="todo-tasks">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>
+                        In Progress
+                    </span>
+
+                    <strong id="progress-tasks">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>
+                        Completed
+                    </span>
+
+                    <strong id="completed-tasks">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =========================
+                 SEARCH & FILTERS
+            ========================== -->
+
+            <section class="task-filters">
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        🔎
+                    </span>
+
+                    <input
+                        type="text"
+                        id="taskSearch"
+                        placeholder="Search tasks, descriptions or assignees..."
+                    >
+
+                </div>
+
+
+
+                <!-- STATUS -->
+
+                <select id="statusFilter">
+
+                    <option value="">
+                        All Status
+                    </option>
+
+                    <option value="To Do">
+                        To Do
+                    </option>
+
+                    <option value="In Progress">
+                        In Progress
+                    </option>
+
+                    <option value="Completed">
+                        Completed
+                    </option>
+
+                </select>
+
+
+
+                <!-- PRIORITY -->
+
+                <select id="priorityFilter">
+
+                    <option value="">
+                        All Priority
+                    </option>
+
+                    <option value="High">
+                        High
+                    </option>
+
+                    <option value="Medium">
+                        Medium
+                    </option>
+
+                    <option value="Low">
+                        Low
+                    </option>
+
+                </select>
+
+
+
+                <!-- PROJECT -->
+
+                <select id="projectFilter">
+
+                    <option value="">
+                        All Projects
+                    </option>
+
+                </select>
+
+
+
+                <!-- CLEAR -->
+
+                <button
+                    type="button"
+                    id="clearTaskFilters"
+                    class="clear-filter-btn"
+                >
+                    ✕ Clear
+                </button>
+
+
+            </section>
+
+
+
+            <!-- =========================
+                 KANBAN BOARD
+            ========================== -->
+
+            <section class="kanban-board">
+
+
+                <!-- TO DO -->
+
+                <div class="kanban-column">
+
+                    <div class="column-header">
+
+                        <div>
+
+                            <span
+                                class="column-dot todo-dot"
+                            ></span>
+
+                            <h3>
+                                To Do
+                            </h3>
+
+                        </div>
+
+                        <span id="todo-count">
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="todo-container"
+                        class="task-list"
+                    ></div>
+
+                </div>
+
+
+
+                <!-- IN PROGRESS -->
+
+                <div class="kanban-column">
+
+                    <div class="column-header">
+
+                        <div>
+
+                            <span
+                                class="column-dot progress-dot"
+                            ></span>
+
+                            <h3>
+                                In Progress
+                            </h3>
+
+                        </div>
+
+                        <span id="progress-count">
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="progress-container"
+                        class="task-list"
+                    ></div>
+
+                </div>
+
+
+
+                <!-- COMPLETED -->
+
+                <div class="kanban-column">
+
+                    <div class="column-header">
+
+                        <div>
+
+                            <span
+                                class="column-dot completed-dot"
+                            ></span>
+
+                            <h3>
+                                Completed
+                            </h3>
+
+                        </div>
+
+                        <span id="completed-count">
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="completed-container"
+                        class="task-list"
+                    ></div>
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         CREATE TASK MODAL
+    ========================== -->
+
+    <div
+        id="taskModal"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>
+                        Create New Task
+                    </h2>
+
+                    <p>
+                        Add a task to your project
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="close-btn"
+                    onclick="closeTaskModal()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <form id="taskForm">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Task Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="taskTitle"
+                        placeholder="Enter task title"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <textarea
+                        id="taskDescription"
+                        placeholder="Describe the task"
+                        rows="4"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Status
+                        </label>
+
+                        <select id="taskStatus">
+
+                            <option value="To Do">
+                                To Do
+                            </option>
+
+                            <option value="In Progress">
+                                In Progress
+                            </option>
+
+                            <option value="Completed">
+                                Completed
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Priority
+                        </label>
+
+                        <select id="taskPriority">
+
+                            <option value="Low">
+                                Low
+                            </option>
+
+                            <option
+                                value="Medium"
+                                selected
+                            >
+                                Medium
+                            </option>
+
+                            <option value="High">
+                                High
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Project
+                    </label>
+
+                    <select
+                        id="taskProject"
+                        required
+                    >
+
+                        <option value="">
+                            Select Project
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Assign To
+                    </label>
+
+                    <select id="taskAssignee">
+
+                        <option value="">
+                            Unassigned
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Due Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="taskDueDate"
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    Create Task
+                </button>
+
+
+                <p id="taskMessage"></p>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         EDIT TASK MODAL
+    ========================== -->
+
+    <div
+        id="editTaskModal"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>
+                        Edit Task
+                    </h2>
+
+                    <p>
+                        Update task information
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="close-btn"
+                    onclick="closeEditTaskModal()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="editTaskForm">
+
+
+                <input
+                    type="hidden"
+                    id="editTaskId"
+                >
+
+
+                <div class="form-group">
+
+                    <label for="editTaskTitle">
+                        Task Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editTaskTitle"
+                        placeholder="Enter task title"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editTaskDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="editTaskDescription"
+                        placeholder="Enter task description"
+                        rows="4"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editTaskStatus">
+                        Status
+                    </label>
+
+                    <select id="editTaskStatus">
+
+                        <option value="To Do">
+                            To Do
+                        </option>
+
+                        <option value="In Progress">
+                            In Progress
+                        </option>
+
+                        <option value="Completed">
+                            Completed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editTaskPriority">
+                        Priority
+                    </label>
+
+                    <select id="editTaskPriority">
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editTaskProject">
+                        Project
+                    </label>
+
+                    <select id="editTaskProject">
+
+                        <option value="">
+                            Select Project
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editTaskAssignee">
+                        Assignee
+                    </label>
+
+                    <select id="editTaskAssignee">
+
+                        <option value="">
+                            Unassigned
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editTaskDueDate">
+                        Due Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="editTaskDueDate"
+                    >
+
+                </div>
+
+
+                <div
+                    id="editTaskMessage"
+                    class="form-message"
+                ></div>
+
+
+                <div class="modal-actions">
+
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="closeEditTaskModal()"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+                        Save Changes
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="tasks.js"></script>
+
+
+
+    <!-- MOBILE SIDEBAR -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const menuBtn =
+                    document.getElementById(
+                        "mobileMenuBtn"
+                    );
+
+                const sidebar =
+                    document.getElementById(
+                        "sidebar"
+                    );
+
+                const overlay =
+                    document.getElementById(
+                        "sidebarOverlay"
+                    );
+
+                const closeBtn =
+                    document.getElementById(
+                        "sidebarClose"
+                    );
+
+
+                function openSidebar() {
+
+                    if (!sidebar) return;
+
+                    sidebar.classList.add(
+                        "mobile-open"
+                    );
+
+                    if (overlay) {
+
+                        overlay.classList.add(
+                            "show"
+                        );
+
+                    }
+
+                    document.body.classList.add(
+                        "sidebar-open"
+                    );
+
+                }
+
+
+                function closeSidebar() {
+
+                    if (!sidebar) return;
+
+                    sidebar.classList.remove(
+                        "mobile-open"
+                    );
+
+                    if (overlay) {
+
+                        overlay.classList.remove(
+                            "show"
+                        );
+
+                    }
+
+                    document.body.classList.remove(
+                        "sidebar-open"
+                    );
+
+                }
+
+
+                if (menuBtn) {
+
+                    menuBtn.addEventListener(
+                        "click",
+                        openSidebar
+                    );
+
+                }
+
+
+                if (closeBtn) {
+
+                    closeBtn.addEventListener(
+                        "click",
+                        closeSidebar
+                    );
+
+                }
+
+
+                if (overlay) {
+
+                    overlay.addEventListener(
+                        "click",
+                        closeSidebar
+                    );
+
+                }
+
+
+                const links =
+                    document.querySelectorAll(
+                        ".sidebar nav a"
+                    );
+
+                links.forEach(
+                    link => {
+
+                        link.addEventListener(
+                            "click",
+                            closeSidebar
+                        );
+
+                    }
+                );
+
+
+                window.addEventListener(
+                    "resize",
+                    function () {
+
+                        if (
+                            window.innerWidth > 750
+                        ) {
+
+                            closeSidebar();
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

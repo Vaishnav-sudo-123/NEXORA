@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Analytics | NEXORA</title>
+
+    <link
+        rel="stylesheet"
+        href="./analytics.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- NEXORA BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-logo">
+
+                <div class="brand-icon">
+                    N
+                </div>
+
+                <div class="brand-text">
+
+                    <h2>
+                        NEXORA
+                    </h2>
+
+                    <span>
+                        WORKSPACE
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p>
+                Manage Projects. Empower Teams.
+            </p>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav>
+
+
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+
+
+            <a href="projects.html">
+                📁 Projects
+            </a>
+
+
+            <a href="tasks.html">
+                ✅ Tasks
+            </a>
+
+
+            <a href="team.html">
+                👥 Team
+            </a>
+
+
+            <a href="notifications.html">
+                🔔 Notifications
+            </a>
+
+
+            <a
+                href="analytics.html"
+                class="active"
+            >
+                📈 Analytics
+            </a>
+
+
+            <a href="settings.html">
+                ⚙️ Settings
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- LOGOUT -->
+
+        <button
+            id="logoutBtn"
+            class="logout-btn"
+        >
+
+            🚪 Logout
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <div class="top-bar">
+
+
+            <div>
+
+                <h1>
+                    Analytics
+                </h1>
+
+                <p>
+                    Track your project and team performance.
+                </p>
+
+            </div>
+
+
+            <button
+                id="refreshBtn"
+                class="refresh-btn"
+            >
+
+                ↻ Refresh
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             STAT CARDS
+        ========================== -->
+
+        <section class="stats-grid">
+
+
+            <!-- TOTAL PROJECTS -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon">
+                    📁
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Total Projects
+                    </h3>
+
+                    <strong id="totalProjects">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- TOTAL TASKS -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon">
+                    ✅
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Total Tasks
+                    </h3>
+
+                    <strong id="totalTasks">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- COMPLETED TASKS -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon">
+                    🏆
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Completed Tasks
+                    </h3>
+
+                    <strong id="completedTasks">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- TEAM MEMBERS -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon">
+                    👥
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Team Members
+                    </h3>
+
+                    <strong id="teamMembers">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             ANALYTICS SECTIONS
+        ========================== -->
+
+        <section class="analytics-grid">
+
+
+            <!-- TASK PERFORMANCE -->
+
+            <div class="analytics-card">
+
+
+                <div class="card-header">
+
+                    <h2>
+                        Task Performance
+                    </h2>
+
+                </div>
+
+
+
+                <!-- COMPLETED -->
+
+                <div class="progress-item">
+
+
+                    <div class="progress-label">
+
+                        <span>
+                            Completed
+                        </span>
+
+                        <span id="completedPercent">
+                            0%
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div
+                            id="completedProgress"
+                            class="progress-fill"
+                        ></div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- PENDING -->
+
+                <div class="progress-item">
+
+
+                    <div class="progress-label">
+
+                        <span>
+                            Pending
+                        </span>
+
+                        <span id="pendingPercent">
+                            0%
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div
+                            id="pendingProgress"
+                            class="progress-fill"
+                        ></div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PROJECT OVERVIEW -->
+
+            <div class="analytics-card">
+
+
+                <div class="card-header">
+
+                    <h2>
+                        Project Overview
+                    </h2>
+
+                </div>
+
+
+                <div class="project-overview">
+
+
+                    <div>
+
+                        <span>
+                            Active Projects
+                        </span>
+
+                        <strong id="activeProjects">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Completed Projects
+                        </span>
+
+                        <strong id="completedProjects">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             SYSTEM STATUS
+        ========================== -->
+
+        <section class="analytics-card">
+
+
+            <div class="card-header">
+
+                <h2>
+                    System Status
+                </h2>
+
+            </div>
+
+
+            <div
+                id="analyticsStatus"
+                class="status-message"
+            >
+
+                Loading analytics...
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="./analytics.js"></script>
+
+
+</body>
+
+</html>

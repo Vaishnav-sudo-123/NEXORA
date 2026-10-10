@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NEXORA | Projects</title>
+
+    <link rel="stylesheet" href="projects.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MOBILE SIDEBAR OVERLAY
+    ====================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+
+    <div class="app-container">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside
+            class="sidebar"
+            id="sidebar"
+        >
+
+
+            <!-- MOBILE CLOSE BUTTON -->
+
+            <button
+                class="sidebar-close"
+                id="sidebarClose"
+                type="button"
+                aria-label="Close sidebar"
+            >
+                ✕
+            </button>
+
+
+
+            <!-- NEXORA BRAND -->
+
+            <div class="brand">
+
+                <div class="brand-logo">
+
+                    <div class="brand-icon">
+                        N
+                    </div>
+
+                    <div class="brand-text">
+
+                        <h2>
+                            NEXORA
+                        </h2>
+
+                        <span>
+                            WORKSPACE
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    Manage Projects. Empower Teams.
+                </p>
+
+            </div>
+
+
+
+            <p class="menu-title">
+                MAIN MENU
+            </p>
+
+
+
+            <!-- NAVIGATION -->
+
+            <nav>
+
+
+                <a href="dashboard.html">
+
+                    📊 Dashboard
+
+                </a>
+
+
+                <a
+                    href="projects.html"
+                    class="active"
+                >
+
+                    📁 Projects
+
+                </a>
+
+
+                <a href="tasks.html">
+
+                    ✅ Tasks
+
+                </a>
+
+
+                <a href="team.html">
+
+                    👥 Team
+
+                </a>
+
+
+                <a href="analytics.html">
+
+                    📈 Analytics
+
+                </a>
+
+
+                <a href="notifications.html">
+
+                    🔔 Notifications
+
+                </a>
+
+
+                <a href="settings.html">
+
+                    ⚙️ Settings
+
+                </a>
+
+
+            </nav>
+
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="sidebar-bottom">
+
+
+                <a href="dashboard.html">
+
+                    ← Back to Dashboard
+
+                </a>
+
+
+                <a
+                    href="#"
+                    onclick="logout()"
+                >
+
+                    🚪 Logout
+
+                </a>
+
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =================================================
+                 TOPBAR
+            ================================================== -->
+
+            <header class="topbar">
+
+
+                <!-- MOBILE MENU BUTTON -->
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    type="button"
+                    aria-label="Open navigation menu"
+                >
+                    ☰
+                </button>
+
+
+
+                <div>
+
+                    <h2>
+                        Projects
+                    </h2>
+
+                    <p>
+                        Manage and track your team projects
+                    </p>
+
+                </div>
+
+
+
+                <!-- CREATE PROJECT -->
+
+                <button
+                    class="create-btn"
+                    onclick="openProjectModal()"
+                >
+
+                    + Create Project
+
+                </button>
+
+
+            </header>
+
+
+
+            <!-- =================================================
+                 PROJECT STATISTICS
+            ================================================== -->
+
+            <section class="project-stats">
+
+
+                <!-- TOTAL PROJECTS -->
+
+                <div class="stat-card">
+
+                    <span>
+                        Total Projects
+                    </span>
+
+                    <strong id="total-projects">
+                        0
+                    </strong>
+
+                </div>
+
+
+
+                <!-- ACTIVE PROJECTS -->
+
+                <div class="stat-card">
+
+                    <span>
+                        Active Projects
+                    </span>
+
+                    <strong id="active-projects">
+                        0
+                    </strong>
+
+                </div>
+
+
+
+                <!-- COMPLETED PROJECTS -->
+
+                <div class="stat-card">
+
+                    <span>
+                        Completed
+                    </span>
+
+                    <strong id="completed-projects">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PROJECTS SECTION
+            ================================================== -->
+
+            <section class="projects-section">
+
+
+                <div class="section-header">
+
+
+                    <div>
+
+                        <h3>
+                            All Projects
+                        </h3>
+
+                        <p>
+                            Your current projects
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- PROJECT CONTAINER -->
+
+                <div
+                    id="projects-container"
+                    class="projects-grid"
+                >
+
+
+                    <div class="loading">
+
+                        Loading projects...
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CREATE PROJECT MODAL
+    ====================================================== -->
+
+    <div
+        id="projectModal"
+        class="modal"
+    >
+
+
+        <div class="modal-content">
+
+
+            <!-- MODAL HEADER -->
+
+            <div class="modal-header">
+
+
+                <div>
+
+                    <h2>
+                        Create New Project
+                    </h2>
+
+                    <p>
+                        Add a new project to your workspace
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="close-btn"
+                    onclick="closeProjectModal()"
+                    type="button"
+                >
+
+                    ×
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- PROJECT FORM -->
+
+            <form id="projectForm">
+
+
+                <!-- PROJECT NAME -->
+
+                <div class="form-group">
+
+
+                    <label>
+                        Project Name
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="projectName"
+                        placeholder="Enter project name"
+                        required
+                    >
+
+
+                </div>
+
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+
+                    <label>
+                        Description
+                    </label>
+
+
+                    <textarea
+                        id="projectDescription"
+                        placeholder="Describe your project"
+                        rows="4"
+                    ></textarea>
+
+
+                </div>
+
+
+
+                <!-- STATUS + PROGRESS -->
+
+                <div class="form-row">
+
+
+                    <!-- STATUS -->
+
+                    <div class="form-group">
+
+
+                        <label>
+                            Status
+                        </label>
+
+
+                        <select id="projectStatus">
+
+
+                            <option value="Active">
+                                Active
+                            </option>
+
+
+                            <option value="Planning">
+                                Planning
+                            </option>
+
+
+                            <option value="Completed">
+                                Completed
+                            </option>
+
+
+                        </select>
+
+
+                    </div>
+
+
+
+                    <!-- PROGRESS -->
+
+                    <div class="form-group">
+
+
+                        <label>
+                            Progress (%)
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="projectProgress"
+                            min="0"
+                            max="100"
+                            value="0"
+                        >
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- DEADLINE -->
+
+                <div class="form-group">
+
+
+                    <label>
+                        Deadline
+                    </label>
+
+
+                    <input
+                        type="date"
+                        id="projectDeadline"
+                    >
+
+
+                </div>
+
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+
+                    Create Project
+
+                </button>
+
+
+                <!-- MESSAGE -->
+
+                <p id="projectMessage"></p>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         EDIT PROJECT MODAL
+    ====================================================== -->
+
+    <div
+        id="editProjectModal"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+
+            <!-- EDIT MODAL HEADER -->
+
+            <div class="modal-header">
+
+
+                <div>
+
+                    <span class="modal-label">
+                        PROJECT UPDATE
+                    </span>
+
+                    <h2>
+                        Edit Project
+                    </h2>
+
+                    <p>
+                        Update your project information
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="close-btn"
+                    onclick="closeEditProjectModal()"
+                    type="button"
+                >
+
+                    ×
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- EDIT FORM -->
+
+            <form id="editProjectForm">
+
+
+                <input
+                    type="hidden"
+                    id="editProjectId"
+                >
+
+
+
+                <!-- PROJECT NAME -->
+
+                <div class="form-group">
+
+
+                    <label for="editProjectName">
+                        Project Name
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="editProjectName"
+                        placeholder="Enter project name"
+                        required
+                    >
+
+
+                </div>
+
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+
+                    <label for="editProjectDescription">
+                        Description
+                    </label>
+
+
+                    <textarea
+                        id="editProjectDescription"
+                        placeholder="Describe your project"
+                        rows="4"
+                    ></textarea>
+
+
+                </div>
+
+
+
+                <!-- STATUS + PROGRESS -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+
+                        <label for="editProjectStatus">
+                            Status
+                        </label>
+
+
+                        <select id="editProjectStatus">
+
+
+                            <option value="Active">
+                                Active
+                            </option>
+
+
+                            <option value="Planning">
+                                Planning
+                            </option>
+
+
+                            <option value="Completed">
+                                Completed
+                            </option>
+
+
+                        </select>
+
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+
+                        <label for="editProjectProgress">
+                            Progress (%)
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="editProjectProgress"
+                            min="0"
+                            max="100"
+                            value="0"
+                        >
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- DEADLINE -->
+
+                <div class="form-group">
+
+
+                    <label for="editProjectDeadline">
+                        Deadline
+                    </label>
+
+
+                    <input
+                        type="date"
+                        id="editProjectDeadline"
+                    >
+
+
+                </div>
+
+
+
+                <!-- UPDATE -->
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+
+                    ✓ Update Project
+
+                </button>
+
+
+                <!-- MESSAGE -->
+
+                <p id="editProjectMessage"></p>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="projects.js"></script>
+
+
+
+    <!-- =====================================================
+         MOBILE SIDEBAR SCRIPT
+    ====================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const mobileMenuBtn =
+                    document.getElementById(
+                        "mobileMenuBtn"
+                    );
+
+
+                const sidebar =
+                    document.getElementById(
+                        "sidebar"
+                    );
+
+
+                const sidebarOverlay =
+                    document.getElementById(
+                        "sidebarOverlay"
+                    );
+
+
+                const sidebarClose =
+                    document.getElementById(
+                        "sidebarClose"
+                    );
+
+
+                function openSidebar() {
+
+                    if (!sidebar) return;
+
+                    sidebar.classList.add(
+                        "mobile-open"
+                    );
+
+
+                    if (sidebarOverlay) {
+
+                        sidebarOverlay.classList.add(
+                            "show"
+                        );
+
+                    }
+
+
+                    document.body.classList.add(
+                        "sidebar-open"
+                    );
+
+                }
+
+
+
+                function closeSidebar() {
+
+                    if (!sidebar) return;
+
+                    sidebar.classList.remove(
+                        "mobile-open"
+                    );
+
+
+                    if (sidebarOverlay) {
+
+                        sidebarOverlay.classList.remove(
+                            "show"
+                        );
+
+                    }
+
+
+                    document.body.classList.remove(
+                        "sidebar-open"
+                    );
+
+                }
+
+
+
+                // OPEN
+
+                if (mobileMenuBtn) {
+
+                    mobileMenuBtn.addEventListener(
+                        "click",
+                        openSidebar
+                    );
+
+                }
+
+
+
+                // CLOSE BUTTON
+
+                if (sidebarClose) {
+
+                    sidebarClose.addEventListener(
+                        "click",
+                        closeSidebar
+                    );
+
+                }
+
+
+
+                // OVERLAY
+
+                if (sidebarOverlay) {
+
+                    sidebarOverlay.addEventListener(
+                        "click",
+                        closeSidebar
+                    );
+
+                }
+
+
+
+                // CLOSE AFTER NAVIGATION
+
+                const sidebarLinks =
+                    document.querySelectorAll(
+                        ".sidebar nav a"
+                    );
+
+
+                sidebarLinks.forEach(
+                    function (link) {
+
+                        link.addEventListener(
+                            "click",
+                            closeSidebar
+                        );
+
+                    }
+                );
+
+
+
+                // CLOSE ON DESKTOP
+
+                window.addEventListener(
+                    "resize",
+                    function () {
+
+                        if (
+                            window.innerWidth > 750
+                        ) {
+
+                            closeSidebar();
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
